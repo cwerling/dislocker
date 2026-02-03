@@ -118,7 +118,7 @@ endif()
 # Libraries
 set (CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-find_package (MbedTLS 3 REQUIRED)
+find_package (MbedTLS REQUIRED)
 set (LIB ${LIB} MbedTLS::mbedcrypto)
 
 # Ruby bindings
