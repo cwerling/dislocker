@@ -256,6 +256,12 @@ target_link_libraries (${BIN_BEK} ${PROJECT_NAME})
 set_target_properties (${BIN_BEK} PROPERTIES LINK_FLAGS "-pie -fPIE")
 install (TARGETS ${BIN_BEK} RUNTIME DESTINATION "${bindir}")
 
+set (BIN_RECOVERY ${PROJECT_NAME}-recovery)
+add_executable (${BIN_RECOVERY} ${BIN_RECOVERY}.c)
+target_link_libraries (${BIN_RECOVERY} ${PROJECT_NAME})
+set_target_properties (${BIN_RECOVERY} PROPERTIES LINK_FLAGS "-pie -fPIE")
+install (TARGETS ${BIN_RECOVERY} RUNTIME DESTINATION "${bindir}")
+
 if(RUBY_FOUND)
 	set (BIN_FIND ${PROJECT_NAME}-find)
 	configure_file ("${CMAKE_CURRENT_SOURCE_DIR}/${BIN_FIND}.rb.in" "${CMAKE_CURRENT_SOURCE_DIR}/${BIN_FIND}.rb" ESCAPE_QUOTES @ONLY)
